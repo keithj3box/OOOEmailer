@@ -1,0 +1,16 @@
+
+*.log
+.DS_Store
+__pycache__/
+	
+client_secret.json
+credentials.json
+creds.py
+data/
+gmailcredentials.json
+gmailcredentials_old.json
+gmailtoken.json
+google-api-python-client-master/
+logs/	
+token.json
+
