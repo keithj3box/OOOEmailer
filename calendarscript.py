@@ -5,7 +5,7 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 from checkAgentZdStatus import getOOOAgents
 from globalVars import oooStringList, partialDayKeyWords, now, today, todayWeekday, noEmailList
-from globalVars import groupIds, managerEmails, devAgentEmails, runMode, devManagerEmails
+from globalVars import groupIds, managerEmails, devAgentEmails, runMode, devManagerEmails, notifyAgentsThisCycle
 from utils import dateStringToDateObject, initLogger
 from sendEmail import emailManagers, emailAgents
 from creds import SCOPES, calendarId, alreadyNotifiedFile, gCalTokenLocation, gCalCredsLocation
@@ -248,6 +248,9 @@ def main():
     if retrieveCalFuncStatus == False:
         proceedToEmailAgents = False
         proceedAgentReasons.append('Could not get list of previously notified events.')
+    if notifyAgentsThisCycle == False:
+        proceedToEmailAgents = False
+        proceedAgentReasons.append('Not within the hours to notify agents.')
 
     # Upcoming events from the User Services calendar. 
     upcomingEvents = googleCalAuth()

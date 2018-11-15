@@ -7,6 +7,15 @@ today = datetime.datetime.now().date()
 todayWeekday = datetime.datetime.now().weekday()
 # mon 0, tues 1, wed 2, thurs 3, fri 4, sat 5, sun 6 
 
+def notifyAgentsThisCycle():
+	nowHour = datetime.datetime.now().hour
+	if 5 < nowHour < 12:
+		return False
+	else:
+		return True
+
+notifyAgentsThisCycle = notifyAgentsThisCycle()
+
 ##### NOTE ON TIME VARS
 # I'm not bothering with standardizing the vars to UTC because this whole script will
 # be run on a cron only a couple of times a day. It's fine to just use system time (PT).
