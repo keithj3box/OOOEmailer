@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 from checkAgentZdStatus import getOOOAgents
-from globalVars import oooStringList, partialDayKeyWords, now, today, todayWeekday
+from globalVars import oooStringList, partialDayKeyWords, now, today, todayWeekday, noEmailList
 from globalVars import groupIds, managerEmails, devAgentEmails, runMode, devManagerEmails
 from utils import dateStringToDateObject, initLogger
 from sendEmail import emailManagers, emailAgents
@@ -69,6 +69,7 @@ def initEvents(incomingEvents, calendarEventsAlreadyNotified, oooStringList):
         # Checking to see if the event description contains a string associated with OOO.
         # The list of OOO strings is in globalVars and can be edited.
         if any(ostring in a.summary for ostring in oooStringList):
+            if a.creator not in noEmailList:
                 oooEvents.append(a)
         else:
             pass

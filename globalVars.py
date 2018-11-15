@@ -14,10 +14,16 @@ todayWeekday = datetime.datetime.now().weekday()
 
 # Options are DEV and PROD. If you use DEV, the list of email addresses below will be
 # used instead of the actual email addresses.
-runMode = 'DEV'
+runMode = 'PROD'
 
 devAgentEmails = ['kjohnson+agent1@box.com', 'kjohnson+agent2@box.com']
 devManagerEmails = ['kjohnson+manager1@box.com', 'kjohnson+manager2@box.com']
+
+#Do not notify these ppl that they're going on OOO.
+noEmailList = ['bpliskow@box.com', 'roryoconnor@box.com', 'abingham@box.com',
+			   'cdaniels@box.com', 'mcortez@box.com', 'jjaquette@box.com', 
+			   'dschuchman@box.com']
+
 
 # List of common OOO phrases in the User Services calendar. These are the terms
 # that we'll search for in events to determin if it's an OOO event. (The calendar
