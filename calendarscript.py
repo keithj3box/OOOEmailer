@@ -103,7 +103,7 @@ def whichAgentsOffToday(events, today):
 
 # Returns of list of email addresses to remind to go OOO in zd and a list
 # of the event ids so we can record it.
-def getAgentWarnedEmails(events, runMode='PROD'):
+def getAgentWarnedEmails(events, runMode=runMode):
     emailAddressesToNotify, notifiedEventIds = [], []
     for e in events:
         if e.notifyToday == True:
@@ -242,7 +242,6 @@ def main():
     upcomingEvents = googleCalAuth()
     logging.info('Retrieved {} upcoming events from the User Services calendar.'.format(
                                                                    len(upcomingEvents['items'])))
-    print(upcomingEvents['items'])
     if len(upcomingEvents['items']) == 0:
         logging.exception('Exiting because there are no events retrieved from calendar.')
         quit()

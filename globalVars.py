@@ -38,9 +38,9 @@ groupIds = {
 
 if runMode == 'PROD':
 	managerEmails = {
-	    'premier': ['kjohnson+ps1@box.com', 'kjohnson+ps2@box.com'],
-	    'tier1':   ['kjohnson+t11@box.com', 'kjohnson+t12@box.com'],
-	    'tier2':   ['kjohnson+t21@box.com', 'kjohnson+t22@box.com'],
+	    'premier': ['cdaniels@box.com', 'abingham@box.com', 'kjohnson@box.com', 'roryoconnor@box.com'],
+	    'tier1':   ['mcortez@box.com', 'jjaquette@box.com', 'kjohnson@box.com', 'roryoconnor@box.com'],
+	    'tier2':   ['bpliskow@box.com', 'kjohnson@box.com', 'roryoconnor@box.com'],
 	                }
 if runMode == 'DEV':
 	managerEmails = {
