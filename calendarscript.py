@@ -136,22 +136,29 @@ class Event():
         # Filter out events already notified for.
         if self.id not in calendarEventsAlreadyNotified:
             startDate = self.startDateObj
+            logging.debug('\tEvent {} is not in the list of previously notified events.'.format(self.summary))
             
             # mon 0, tues 1, wed 2, thurs 3, fri 4, sat 5, sun 6 
             weekdayStartDay = startDate.weekday()
             weekdayToday = today.weekday()
+            logging.debug('weekdayStartDay and weekdayToday are {} and {} respectively.'.format(\
+                weekdayStartDay, weekdayToday))
 
             # If PTO start day is on weekend, make the start day a monday since they
             # will be treated the same.
             if weekdayStartDay > 4:
                 weekdayStartDay = 0
+                logging.debug('\tMoved the weekday to Monday because it was on the weekend.')
                
             # For PTO start days on Monday (or the weekend), we'll notify the Friday before.
             if weekdayStartDay == 0:
                 notifyDate = startDate - datetime.timedelta(days=3)
+                logging.debug('\tSince startday is Monday, setting notifyDate to {}'.format(\
+                    notifyDate))
             else:
             # For Tues-Fri PTO start days, we'll notify the day before.
                 notifyDate = startDate - datetime.timedelta(days=1)
+                logging.debug('\tNotifydate is {}'.format(notifyDate))
 
             # All that really matters that we return from this is if we need to send a 
             # notification today.
@@ -164,6 +171,7 @@ class Event():
             self.notifyToday = False
             logging.info('Removing event {} - {} from list because it has already been notified.'.format(\
                 self.summary, self.start))
+        logging.info('notifyToday for event {} is {}'.format(self.summary, self.notifyToday))
         return self
 
 # If we emailed the agent, write the event ID to a persistent file so we don't do it again.
@@ -172,6 +180,7 @@ def recordEventsThatWereNotified(listOfEventIds):
         with open(alreadyNotifiedFile, 'a') as f:
             for x in listOfEventIds:
                 f.write(x + '\n')
+        logging.debug('alreadyNotifiedFile loaded.')
         return True
     except Exception as ex:
         logging.exception('Exception writing to already-notified file: {}'.format(ex))
