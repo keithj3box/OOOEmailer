@@ -66,7 +66,7 @@ def emailManagers(emailDict, count):
 				if count < 5:
 					message = create_message(senderEmail, email, managerEmailSubject, managerEmailBody)
 					print(message)
-					#send_message(service, 'me', message)
+					send_message(service, 'me', message)
 					count += 1
 					time.sleep(1)
 	
@@ -75,7 +75,7 @@ def emailAgents(listofEmails):
 	service = googleAuth()
 	for email in listofEmails:
 		message = create_message(senderEmail, email, agentEmailSubject, agentEmailBody)
-		#send_message(service, 'me', message)
+		send_message(service, 'me', message)
 		print(message)
 
 

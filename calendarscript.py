@@ -211,11 +211,12 @@ def createAgentListsForManagerEmail(objects, managerEmails):
         emailMatch[k]['agents'] = []
     
     for obj in objects:
-        if obj.managerNotify in emailMatch.keys():
-            emailMatch[obj.managerNotify]['managerEmails'].append([a for a in obj.managerEmails \
-                                if a not in emailMatch[obj.managerNotify]['managerEmails']])
-            emailMatch[obj.managerNotify]['agents'].append(obj.name)
-            continue
+        if getattr(obj, 'managerNotify', None) is not None:
+            if obj.managerNotify in emailMatch.keys():
+                emailMatch[obj.managerNotify]['managerEmails'].append([a for a in obj.managerEmails \
+                                    if a not in emailMatch[obj.managerNotify]['managerEmails']])
+                emailMatch[obj.managerNotify]['agents'].append(obj.name)
+                continue
     return emailMatch
 
 
