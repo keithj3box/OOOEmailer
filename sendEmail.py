@@ -19,7 +19,7 @@ SCOPES = gmailScopes
 agentEmailBody = 'Hey there! \n\n[[This is an automated message.]] \n\n It looks like you may be on PTO tomorrow based on an event on the User Services calendar. \n\n Just a reminder to remember to mark yourself \'OOO\' in Zendesk before you leave. Otherwise, you will be assigned cases. \n\n Here\'s a link to the new PTO policy: LINK \n\n [[By the way, these emails may not always come, so please don\'t start to rely on them!]]'
 agentEmailSubject = 'AUTOMATED MESSAGE: Upcoming PTO Reminder'
 
-managerEmailSubject = 'AUTMATED MESSAGE: Possible PTO agent(s) not OOO in Zendesk.'
+managerEmailSubject = 'AUTOMATED MESSAGE: Possible PTO agent(s) not OOO in Zendesk.'
 
 
 
