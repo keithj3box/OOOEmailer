@@ -1,6 +1,6 @@
 zdToken = ''
 zdEmail = ''
-baseUrl = 'https://box.zendesk.com/api/v2/'
+baseUrl = 'https://COMPANY.zendesk.com/api/v2/'
 
 
 # If modifying these scopes, delete the file token.json. It will regenerate.
