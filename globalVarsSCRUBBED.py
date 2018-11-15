@@ -20,6 +20,15 @@ runMode = 'DEV'
 devAgentEmails = []
 devManagerEmails = []
 
+def notifyAgentsThisCycle():
+	nowHour = datetime.datetime.now().hour
+	if 5 < nowHour < 12:
+		return False
+	else:
+		return True
+
+notifyAgentsThisCycle = notifyAgentsThisCycle()
+
 # List of common OOO phrases in the User Services calendar. These are the terms
 # that we'll search for in events to determin if it's an OOO event. (The calendar
 # event descriptions will be automatically converted to lowercase.)
