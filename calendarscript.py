@@ -326,7 +326,7 @@ def main():
         emailAgents(agentEmailsToWarn)
     else:
         logging.critical('AGENTS NOT EMAILED.')
-        logging.critical('Reasons: {}'.format([a for a in proceedToEmailAgents]))
+        logging.critical('Reasons: {}'.format([a for a in proceedAgentReasons]))
 
 
 if __name__ == '__main__':
