@@ -13,4 +13,4 @@ gmailtoken.json
 google-api-python-client-master/
 logs/	
 token.json
-
+globalVars.py
