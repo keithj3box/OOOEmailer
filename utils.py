@@ -34,7 +34,7 @@ session = zendeskAuth()
 # For troubleshooting, you can switch to DEBUG for more information.
 def initLogger():
 	logging.basicConfig(format='%(lineno)d - %(asctime)s - %(levelname)s - %(funcName)s - %(message)s', level=logging.DEBUG)
-	handler = RotatingFileHandler('logs/zendeskBackupVerboseAF.log', maxBytes=1000*1024,backupCount=5)
+	handler = RotatingFileHandler('zendeskBackupVerboseAF.log', maxBytes=1000*1024,backupCount=5)
 	handler.setLevel(logging.DEBUG)
 	formatter = logging.Formatter('%(lineno)d - %(asctime)s - %(levelname)s - %(funcName)s - %(message)s')
 	handler.setFormatter(formatter)
